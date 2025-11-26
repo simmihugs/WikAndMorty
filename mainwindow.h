@@ -21,6 +21,6 @@ private:
     Ui::MainWindow *ui;
 
 private slots:
-  void on_myButton_clicked();
+  void handleGridButtonClick(int index);
 };
 #endif // MAINWINDOW_H
