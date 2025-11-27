@@ -4,6 +4,15 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
 
+  loadingIndicator = new LoadingIndicator(this);
+  loadingIndicator->show();
+this->setEnabled(false);
+QTimer::singleShot(10000, this, [this]() {
+    loadingIndicator->hide();
+    this->setEnabled(true);
+});  
+
+  
   manager = new QNetworkAccessManager(this);
   this->connect(manager, &QNetworkAccessManager::finished, this,
                 [=](QNetworkReply *reply) {

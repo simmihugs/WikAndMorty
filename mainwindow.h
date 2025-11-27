@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "components/LoadingIndicator/indicator.h"
+
 #include <QDebug>
 #include <QJsonDocument>
 #include <QJsonParseError>
@@ -11,6 +13,7 @@
 #include <QNetworkRequest>
 #include <QPushButton>
 #include <QString>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -29,6 +32,7 @@ private:
   Ui::MainWindow *ui;
   QNetworkAccessManager *manager;
   QNetworkRequest request;
+  LoadingIndicator *loadingIndicator;
 
 private slots:
   void handleGridButtonClick(int index);
